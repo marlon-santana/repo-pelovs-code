@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;    /*ok*/
+        }
+
+        body {
+            margin: 0;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  /*ok*/
+            background-color: rgb(253, 252, 252);
+        }
+        .main {
+            display: flex;
+            align-content: center;
+            background-color: rgb(250, 252, 250,0.5);
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 50px;
+           
+        }
+        .descricao  {
+            align-content: center;
+            display: flexbox;
+            background-color: rgb(5, 128, 32);
+            height: 500px;
+            width: 400px;
+            margin-top: 50px;
+            margin: 0 auto;
+            border: solid 2px  rgb(250, 252, 250,0.5);
+            box-shadow: rgb(104, 101, 101,0.5) 2px 2px 2px 2px ;
+            border-radius: 30px;
+        }
+        
+        
+        
+       
+        
+        .cabecalho {
+            background-color: #333;
+            border-bottom: solid 5px #4faddb;  /*ok*/
+            height: 80px;
+            box-sizing: content-box;
+        }
+
+        .cabecalho a {
+            text-decoration: none; /*ok*/
+            color: #eee;
+            font-size: 1.3em;
+        
+
+        
+        }
+        .logo {
+            display: inline-block;   /*ok*/
+            height: 80px;
+            padding: 15px;
+        }
+    
+        .logo img{
+            height: 100%; /*ok*/
+        }
+        ul {
+            position: absolute;
+            top: 50px;
+            left: 40%;
+            display: flex;
+           
+           
+        }
+        .menu a {
+            padding: 15px; /*ok*/
+          
+        
+        }
+        .autenticacao {
+          float: right;    /*ok*/
+          height: 80px;
+          padding: 25px;
+          margin-top: 24px;
+        }
+        .cabecalho a{
+            text-decoration: none;
+            color: #fff;          /*ok*/
+            font-size: 1.3em;
+        }
+    
+        .menu a:hover,
+        .menu a.selected {
+            background-color: orangered; /*ok*/
+            color: #000;
+            padding-bottom: 0px;
+        }
+
+        .menu-toggle {
+            float: right;
+            color: #eee;
+            background-color: #555;
+            border: solid 1px #777;   /*ok*/
+            border-radius: 5px;
+            height: 40px;
+            padding: 10px 20px;
+            margin: 20px 15px;
+        }
+        .menu {
+            display: inline-block;
+            vertical-align: top;   /*ok*/
+            height: 80px;
+            padding: 25px;
+        }
+        .menu ul {
+            margin: 0px;
+            padding: 0px;   /*ok*/
+        }
+
+        .menu li {
+            display: inline-block; /*ok*/
+
+        }
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-size:25px;   /*ok*/
+            padding: 15px;
+        
+
+
+        }
+        .botao {
+            border-radius: 30px;
+            padding: 10px 25px; /*ok*/
+            margin: 10px;
+
+        }
+        .destaque {
+            background-color: #f50a31;
+            color: #fff;
+
+        }
+        @media(min-width: 679px){
+            .menu-toggle{
+                display: none;
+            }
+         
+            
+            
+          
+            
+        }
+        @media(max-width: 680px){
+            .menu {
+                display: none;
+            }
+            .main {
+                flex-direction: column;
+            }
+            .descricao{
+                margin: 10px;
+            }
+        }
+        
+        @media(max-width: 910px){
+            .autenticacao{
+                display: none;
+            }
+            .descricao {
+                margin: 5px;
+            }
+            
+                
+            
+            
+                
+               
+            
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login" class="login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+    <div class="main">
+
+    
+        <div class="descricao">
+         
+            
+            
+
+        </div>
+        <div class="descricao">
+          
+
+        </div>
+        <div class="descricao">
+           
+
+        </div>
+
+
+
+    </div>
+
+    <script>
+        window.onhashchange = function(e){
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+            console.log(oldURL,newURL)
+            const oldmenu = document.querySelector(`.menu a[href='#${oldURL}']`)
+            const newmenu = document.querySelector(`.menu a[href='#${newURL}']`)
+            oldmenu && oldmenu.classList.remove('selected')
+            newmenu && newmenu.classList.add('selected')
+
+
+        }
+        
+    </script>
+</body>
+
+</html>
