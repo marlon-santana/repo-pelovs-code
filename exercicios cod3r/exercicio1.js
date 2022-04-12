@@ -7,6 +7,7 @@ function conta(a,b){
     console.log(a-b)
     console.log(a*b)
     console.log(a/b)
+    console.log(a/b)
 }
 conta(10,2)
 
